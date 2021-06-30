@@ -2,11 +2,14 @@
 #define GAME_H
 
 #include <string>
+#include <vector>
 #include <SFML/Graphics.hpp>
+#include "shape.h"
 
 namespace sf {
     class RenderWindow;
     class Time;
+    struct Shape;
 };
 
 namespace Engine {
@@ -19,7 +22,6 @@ namespace Engine {
 
             void run();
 
-        private:
 
             void handle_event();
             void update(sf::Time elapsed_time);
@@ -31,6 +33,8 @@ namespace Engine {
             bool running;
 
             static sf::Time time_per_frame;
+
+            std::vector<Shape*> shapes;
 
 
     };

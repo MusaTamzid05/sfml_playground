@@ -7,6 +7,8 @@ SET(SOURCE_FILES
     src/main.cpp
     src/window.cpp
     src/vector.cpp
+    src/shape.cpp
+    src/circle.cpp
     )
 
 

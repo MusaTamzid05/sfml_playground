@@ -1,4 +1,5 @@
 #include "window.h"
+#include "circle.h"
 #include <SFML/Graphics.hpp>
 
 
@@ -8,6 +9,7 @@ namespace Engine {
 
     Window::Window(const std::string& window_name, int width, int height):width(width), height(height), running(false) {
         m_window = new sf::RenderWindow(sf::VideoMode(width, height), window_name);
+        shapes.push_back(new Circle(width / 2, height / 2));
 
     }
 
@@ -51,6 +53,9 @@ namespace Engine {
 
     void Window::render() {
         m_window->clear();
+        for(Shape* shape : shapes)
+            shape->render(this);
+
         m_window->display();
     }
 }
