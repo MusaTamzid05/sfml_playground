@@ -22,6 +22,8 @@ namespace Engine {
 
             void run();
 
+            void add(Shape* shape);
+
 
             void handle_event();
             void update(sf::Time elapsed_time);

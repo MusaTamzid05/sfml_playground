@@ -9,7 +9,6 @@ namespace Engine {
 
     Window::Window(const std::string& window_name, int width, int height):width(width), height(height), running(false) {
         m_window = new sf::RenderWindow(sf::VideoMode(width, height), window_name);
-        shapes.push_back(new Circle(width / 2, height / 2));
 
     }
 
@@ -36,6 +35,10 @@ namespace Engine {
         }
 
         m_window->close();
+    }
+
+    void Window::add(Shape* shape) {
+        shapes.push_back(shape);
     }
 
     void Window::handle_event() {

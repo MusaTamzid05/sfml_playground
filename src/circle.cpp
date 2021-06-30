@@ -6,7 +6,6 @@ namespace Engine {
 
     Circle::Circle(int pos_x, int pos_y, float radius):
         Shape(pos_x, pos_y) {
-            std::cout << "Circle radius " << radius << "\n";
             shape.setRadius(radius);
             shape.setPosition(pos_x, pos_y);
             shape.setFillColor(sf::Color::Cyan);
