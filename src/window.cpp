@@ -21,6 +21,8 @@ namespace Engine {
             render();
 
         }
+
+        m_window->close();
     }
 
     void Window::handle_event() {
