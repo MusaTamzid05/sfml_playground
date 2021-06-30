@@ -2,9 +2,11 @@
 #define GAME_H
 
 #include <string>
+#include <SFML/Graphics.hpp>
 
 namespace sf {
     class RenderWindow;
+    class Time;
 };
 
 namespace Engine {
@@ -20,13 +22,15 @@ namespace Engine {
         private:
 
             void handle_event();
-            void update();
+            void update(sf::Time elapsed_time);
             void render();
 
             sf::RenderWindow* m_window;
             int width;
             int height;
             bool running;
+
+            static sf::Time time_per_frame;
 
 
     };

@@ -1,7 +1,10 @@
 #include "window.h"
 #include <SFML/Graphics.hpp>
 
+
 namespace Engine {
+
+    sf::Time Window::time_per_frame = sf::seconds(1.0f / 60.0f);
 
     Window::Window(const std::string& window_name, int width, int height):width(width), height(height), running(false) {
         m_window = new sf::RenderWindow(sf::VideoMode(width, height), window_name);
@@ -15,11 +18,19 @@ namespace Engine {
     void Window::run() {
         running = true;
 
-        while(running) {
-            handle_event();
-            update();
-            render();
+        sf::Clock clock;
+        sf::Time time_since_last_update = sf::Time::Zero;
 
+        while(running) {
+            time_since_last_update += clock.restart();
+
+            while(time_since_last_update > time_per_frame) {
+                time_since_last_update -= time_per_frame;
+                handle_event();
+                update(time_per_frame);
+
+            }
+            render();
         }
 
         m_window->close();
@@ -34,7 +45,7 @@ namespace Engine {
         }
     }
 
-    void Window::update() {
+    void Window::update(sf::Time elapsed_time) {
 
     }
 
