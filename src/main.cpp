@@ -1,7 +1,8 @@
-#include <iostream>
+#include "window.h"
 
 
 int main(int argc, char** argv) {
-    std::cout << "This is test.\n";
+    Engine::Window window;
+    window.run();
     return 0;
 }
